@@ -1,0 +1,110 @@
+Remove if already exists 
+======================
+
+yum remove docker
+
+Install storage drivers and lvm
+=============================
+
+sudo yum install -y yum-utils \device-mapper-persistent-data \lvm2
+
+Add docker repo
+==============
+
+sudo yum-config-manager \--add-repo \https://download.docker.com/linux/centos/docker-ce.repo
+
+Enable the ce repo by default
+===============================
+
+sudo yum-config-manager --enable docker-ce-edge
+
+sudo yum-config-manager --enable docker-ce-test
+
+sudo yum-config-manager --disable docker-ce-edge
+
+Install the docker
+=================
+
+ sudo yum install docker-ce
+
+Start docker 
+===============
+
+systemctl start/stop docker
+
+Check the status 
+==============
+
+systemctl status docker
+
+Run Hello-world
+==============
+
+docker run hello-world
+
+Docker commands
+====================
+
+docker info
+
+docker search busybox
+
+docker ps - running containers 
+
+
+docker ps  -a  -> All the containers 
+
+docker images - To list the local images 
+
+docker pull httpd - To fetch apache 
+
+docker start 2233(cid)
+
+docker attach 22339(cid) - login to the docker 
+
+docker run -d  --name web1 httpd:latest - In detach mode 
+
+docker run -d  --name web1 -p 80:80 httpd:latest  - expose the port to the host machine 
+
+sudo docker exec -i -t 848ecdaa5056 /bin/bash
+
+doker run -it --name web2 -rm centos - terminate after use 
+
+doker run -it --name web2  --network=bridge centos - terminate after use 
+
+creating custom images :
+======================
+
+docker run -i -t ubuntu:14.04 /bin/bash
+
+inside the container : 
+
+   # apt-get update
+   # apt-get install curl
+  exit
+
+docker commit <container_id> new_image_name:tag_name(optional)
+
+docker images     
+
+docker run -it new_image_name:tag_name bash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
